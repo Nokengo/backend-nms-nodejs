@@ -1,10 +1,12 @@
 const express = require('express');
 const mongoose = require('mongoose');
 
+require('dotenv').config();
+
 const app = express();
 
-mongoose.connect('mongodb://nkg:nkg123@ds143143.mlab.com:43143/nkg-site', {
-    useNewUrlParser: true
+mongoose.connect('mongodb://'+process.env.DB_USER+':'+process.env.DB_PASS+'@'+process.env.DB_HOST, {
+useNewUrlParser: true
 });
 
 app.use(express.json());
