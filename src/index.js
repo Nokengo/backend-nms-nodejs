@@ -1,5 +1,6 @@
 const express = require('express');
 const mongoose = require('mongoose');
+const cors = require('cors');
 
 require('dotenv').config();
 
@@ -9,6 +10,7 @@ mongoose.connect('mongodb://'+process.env.DB_USER+':'+process.env.DB_PASS+'@'+pr
 useNewUrlParser: true
 });
 
+app.use(cors());
 app.use(express.json());
 app.use(require('./routes'));
 
